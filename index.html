@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,73 @@
     <link rel="icon" type="image/png" href="https://i.ibb.co/wZZCHcQS/image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+
+            /* Thu nhỏ tiêu đề Hero */
+            .hero-content h1 {
+                font-size: 2.2rem;
+                text-align: center;
+            }
+
+            .hero-content p {
+                text-align: center;
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+
+            /* Căn giữa lại Hero Section */
+            .hero {
+                padding: 40px 5%;
+                gap: 30px;
+            }
+
+            /* Chỉnh lại Navbar trên điện thoại */
+            .navbar {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+
+            /* Chỉnh lại các ô Trạng Thái (Status Boxes) */
+            .status-container {
+                gap: 10px;
+            }
+
+            .status-box {
+                min-width: 100%;
+                /* Cho mỗi ô chiếm 1 dòng trên đt nhỏ */
+                padding: 15px;
+            }
+
+            .status-box .val {
+                font-size: 1.1rem;
+            }
+
+            /* Thu nhỏ Server Card để không bị tràn màn hình */
+            .server-card {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            /* Điều chỉnh lại chiều cao viewport của UI Minecraft */
+            .ui-viewport {
+                min-height: 280px;
+            }
+        }
+
         :root {
             --primary: #00d4ff;
             --bg-dark: #050a14;
@@ -16,55 +84,233 @@
             --accent-red: #ce3737;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); scroll-behavior: smooth; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-        #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        #plexus-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
         /* --- NAVBAR --- */
-        .navbar { display: flex; justify-content: space-between; padding: 25px 8%; align-items: center; border-bottom: 1px solid rgba(0, 212, 255, 0.1); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
-        .logo { font-weight: 800; font-size: 1.6rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 600; font-size: 0.85rem; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
-        .nav-links a:hover { color: var(--primary); }
-        .btn-discord-nav { background: #5865F2; padding: 8px 15px; border-radius: 5px; color: white !important; }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 8%;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-discord-nav {
+            background: #5865F2;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white !important;
+        }
 
         /* --- HERO & SERVER CARD --- */
-        .hero { display: flex; align-items: center; justify-content: center; padding: 80px 8%; min-height: 85vh; gap: 50px; flex-wrap: wrap; }
-        .hero-content { flex: 1; max-width: 500px; }
-        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(0, 212, 255, 0.4); }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 8%;
+            min-height: 85vh;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
 
         .server-card {
             background: var(--card-bg);
             padding: 30px;
             border: 1px solid rgba(0, 212, 255, 0.3);
             border-radius: 20px;
-            width: 100%; max-width: 500px;
+            width: 100%;
+            max-width: 500px;
             backdrop-filter: blur(20px);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
         }
 
         /* Tabs & Slider */
-        .tabs { display: flex; background: rgba(0, 0, 0, 0.5); border-radius: 12px; margin-bottom: 25px; padding: 6px; position: relative; }
-        .tab-btn { flex: 1; padding: 12px; border: none; background: none; color: #888; cursor: pointer; font-weight: bold; transition: 0.3s; z-index: 2; position: relative; }
-        .tab-btn.active { color: #000; }
-        .tab-slider { position: absolute; height: calc(100% - 12px); width: calc(50% - 6px); background: var(--primary); top: 6px; left: 6px; border-radius: 8px; transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1); z-index: 1; box-shadow: 0 0 15px var(--primary); }
-        .tab-btn:nth-child(2).active ~ .tab-slider { transform: translateX(100%); }
+        .tabs {
+            display: flex;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            padding: 6px;
+            position: relative;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: none;
+            color: #888;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 2;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #000;
+        }
+
+        .tab-slider {
+            position: absolute;
+            height: calc(100% - 12px);
+            width: calc(50% - 6px);
+            background: var(--primary);
+            top: 6px;
+            left: 6px;
+            border-radius: 8px;
+            transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+            z-index: 1;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .tab-btn:nth-child(2).active~.tab-slider {
+            transform: translateX(100%);
+        }
 
         /* Content Slide Animation */
-        .ui-viewport { position: relative; overflow: hidden; min-height: 310px; }
-        .ui-slide { position: absolute; width: 100%; top: 0; left: 0; transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease; opacity: 0; visibility: hidden; }
-        .ui-slide.active { opacity: 1; visibility: visible; transform: translateX(0); position: relative; }
-        .ui-slide.to-left { transform: translateX(-100%); }
-        .ui-slide.from-right { transform: translateX(100%); }
+        .ui-viewport {
+            position: relative;
+            overflow: hidden;
+            min-height: 310px;
+        }
+
+        .ui-slide {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .ui-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            position: relative;
+        }
+
+        .ui-slide.to-left {
+            transform: translateX(-100%);
+        }
+
+        .ui-slide.from-right {
+            transform: translateX(100%);
+        }
 
         /* --- MINECRAFT UI STYLE --- */
-        .mc-box { background: rgba(0, 0, 0, 0.7); padding: 20px; border: 2px solid #333; border-radius: 2px; }
-        .mc-label { font-size: 0.8rem; color: #aaa; margin-bottom: 5px; display: block; }
-        .mc-input { background: #000; border: 1px solid #555; padding: 10px; color: var(--primary); margin-bottom: 15px; width: 100%; font-family: monospace; outline: none; }
-        .mc-btn { width: 100%; padding: 12px; background: #3c3c3c; border: 2px solid #000; color: #fff; cursor: pointer; font-weight: bold; }
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .mc-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 2px;
+        }
+
+        .mc-label {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .mc-input {
+            background: #000;
+            border: 1px solid #555;
+            padding: 10px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            width: 100%;
+            font-family: monospace;
+            outline: none;
+        }
+
+        .mc-btn {
+            width: 100%;
+            padding: 12px;
+            background: #3c3c3c;
+            border: 2px solid #000;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
 
         /* Copy IP Button */
         .copy-ip-container {
@@ -79,24 +325,85 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .copy-ip-container:hover { background: rgba(0, 212, 255, 0.15); }
-        .copy-ip-container span { font-weight: bold; color: var(--primary); }
+
+        .copy-ip-container:hover {
+            background: rgba(0, 212, 255, 0.15);
+        }
+
+        .copy-ip-container span {
+            font-weight: bold;
+            color: var(--primary);
+        }
 
         /* --- STATUS SECTION --- */
-        .status-section { padding: 100px 8%; text-align: center; border-top: 1px solid rgba(0, 212, 255, 0.1); }
-        .status-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
-        .status-box { background: var(--card-bg); border: 1px solid rgba(0, 212, 255, 0.1); padding: 25px; border-radius: 15px; min-width: 220px; flex: 1; }
-        .status-box h3 { font-size: 0.8rem; color: #888; letter-spacing: 2px; margin-bottom: 10px; }
-        .status-box .val { font-size: 1.4rem; font-weight: 800; color: #fff; }
-        .online-dot { height: 10px; width: 10px; background: #2ecc71; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 10px #2ecc71; }
+        .status-section {
+            padding: 100px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .status-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .status-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 220px;
+            flex: 1;
+        }
+
+        .status-box h3 {
+            font-size: 0.8rem;
+            color: #888;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .status-box .val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .online-dot {
+            height: 10px;
+            width: 10px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #2ecc71;
+        }
 
         /* --- FOOTER --- */
-        .footer { background: rgba(0, 0, 0, 0.9); padding: 50px 8%; text-align: center; font-size: 0.8rem; color: #555; }
-        .footer b { color: var(--text-light); }
-        .not-official { margin-top: 10px; opacity: 0.5; }
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 50px 8%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #555;
+        }
 
+        .footer b {
+            color: var(--text-light);
+        }
+
+        .not-official {
+            margin-top: 10px;
+            opacity: 0.5;
+        }
+        .not-official { margin-top: 10px; opacity: 0.5; }
+        /* <--- DÁN ĐOẠN CODE TRÊN VÀO ĐÂY ---> */
     </style>
 </head>
+
 <body>
 
     <canvas id="plexus-canvas"></canvas>
@@ -106,7 +413,8 @@
         <div class="nav-links">
             <a href="#"><i class="fas fa-home"></i> TRANG CHỦ</a>
             <a href="#status"><i class="fas fa-signal"></i> TRẠNG THÁI</a>
-            <a href="https://discord.gg/C7WkvjH3AB" class="btn-discord-nav" target="_blank"><i class="fab fa-discord"></i> DISCORD</a>
+            <a href="https://discord.gg/C7WkvjH3AB" class="btn-discord-nav" target="_blank"><i
+                    class="fab fa-discord"></i> DISCORD</a>
         </div>
     </nav>
 
@@ -122,11 +430,12 @@
                 <button class="tab-btn" onclick="switchTab('bedrock', this)">BEDROCK EDITION</button>
                 <div class="tab-slider"></div>
             </div>
-            
+
             <div class="ui-viewport">
                 <div id="java-ui" class="ui-slide active">
                     <div class="mc-box">
-                        <p style="text-align:center; font-size: 0.8rem; color: #888; margin-bottom: 15px;">Chỉnh sửa thông tin máy chủ</p>
+                        <p style="text-align:center; font-size: 0.8rem; color: #888; margin-bottom: 15px;">Chỉnh sửa
+                            thông tin máy chủ</p>
                         <label class="mc-label">Tên máy chủ</label>
                         <div class="mc-input">Gà Con MC</div>
                         <label class="mc-label">Địa chỉ máy chủ</label>
@@ -148,8 +457,10 @@
                         <label class="mc-label">Cổng</label>
                         <div class="mc-input" style="background:#111; border-color:#444;">25793</div>
                         <div class="btn-group">
-                            <button class="mc-btn" style="background:var(--accent-red); border:none;">Xóa máy chủ</button>
-                            <button class="mc-btn" style="background:var(--accent-green); border:none;" onclick="copyIP()">Lưu thay đổi</button>
+                            <button class="mc-btn" style="background:var(--accent-red); border:none;">Xóa máy
+                                chủ</button>
+                            <button class="mc-btn" style="background:var(--accent-green); border:none;"
+                                onclick="copyIP()">Lưu thay đổi</button>
                         </div>
                     </div>
                 </div>
@@ -182,7 +493,8 @@
 
     <footer class="footer">
         <p><b>© 2026 GACONMC. BẢN QUYỀN CỦA KEN.</b></p>
-        <p class="not-official"><b>ĐÂY KHÔNG PHẢI LÀ SẢN PHẨM CHÍNH THỨC CỦA MINECRAFT. CHÚNG TÔI KHÔNG LIÊN KẾT VỚI MOJANG AB.</b></p>
+        <p class="not-official"><b>ĐÂY KHÔNG PHẢI LÀ SẢN PHẨM CHÍNH THỨC CỦA MINECRAFT. CHÚNG TÔI KHÔNG LIÊN KẾT VỚI
+                MOJANG AB.</b></p>
     </footer>
 
     <script>
@@ -237,20 +549,20 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             pts = [];
-            for(let i=0; i<80; i++) pts.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: Math.random()-0.5, vy: Math.random()-0.5});
+            for (let i = 0; i < 80; i++) pts.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: Math.random() - 0.5, vy: Math.random() - 0.5 });
         }
         function draw() {
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            pts.forEach((p,i) => {
-                p.x+=p.vx; p.y+=p.vy;
-                if(p.x<0||p.x>canvas.width) p.vx*=-1; if(p.y<0||p.y>canvas.height) p.vy*=-1;
-                ctx.fillStyle="rgba(0,212,255,0.3)";
-                ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fill();
-                for(let j=i+1; j<pts.length; j++) {
-                    let d = Math.sqrt((p.x-pts[j].x)**2+(p.y-pts[j].y)**2);
-                    if(d<150) {
-                        ctx.strokeStyle=`rgba(0,212,255,${1-d/150})`;
-                        ctx.lineWidth=0.5; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(pts[j].x,pts[j].y); ctx.stroke();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pts.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1; if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.fillStyle = "rgba(0,212,255,0.3)";
+                ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+                for (let j = i + 1; j < pts.length; j++) {
+                    let d = Math.sqrt((p.x - pts[j].x) ** 2 + (p.y - pts[j].y) ** 2);
+                    if (d < 150) {
+                        ctx.strokeStyle = `rgba(0,212,255,${1 - d / 150})`;
+                        ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
                     }
                 }
             });
@@ -259,4 +571,5 @@
         window.onresize = init; init(); draw();
     </script>
 </body>
+
 </html>
