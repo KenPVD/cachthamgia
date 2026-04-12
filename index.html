@@ -449,7 +449,7 @@
                         <label class="mc-label">Tên máy chủ</label>
                         <div class="mc-input">Gà Con MC</div>
                         <label class="mc-label">Địa chỉ máy chủ</label>
-                        <div class="mc-input">gaconmc.ddns.net:25793</div>
+                        <div class="mc-input">gaconmc.ddns.net:19033</div>
                         <button class="mc-btn" style="margin-bottom:10px;">Gói tài nguyên: Đã bật</button>
                         <div class="btn-group">
                             <button class="mc-btn" onclick="copyIP()">Xong</button>
@@ -465,7 +465,7 @@
                         <label class="mc-label">Địa chỉ máy chủ</label>
                         <div class="mc-input" style="background:#111; border-color:#444;">gaconmc.ddns.net</div>
                         <label class="mc-label">Cổng</label>
-                        <div class="mc-input" style="background:#111; border-color:#444;">25793</div>
+                        <div class="mc-input" style="background:#111; border-color:#444;">19033</div>
                         <div class="btn-group">
                             <button class="mc-btn" style="background:var(--accent-red); border:none;">Xóa máy
                                 chủ</button>
@@ -477,7 +477,7 @@
             </div>
 
             <div class="copy-ip-container" onclick="copyIP()">
-                <span>IP: <span id="ip-text">gaconmc.ddns.net:25793</span></span>
+                <span>IP: <span id="ip-text">gaconmc.ddns.net:19033</span></span>
                 <i class="far fa-copy"></i>
             </div>
         </div>
@@ -511,7 +511,7 @@
         // --- 1. KẾT NỐI API THẬT ---
         async function fetchStatus() {
             try {
-                const response = await fetch('https://api.mcstatus.io/v2/status/java/160.25.232.39:25793');
+                const response = await fetch('https://api.mcstatus.io/v2/status/java/185.207.166.16:19033');
                 const data = await response.json();
 
                 if (data.online) {
@@ -538,11 +538,11 @@
             if (mode === 'java') {
                 javaUI.className = 'ui-slide active';
                 bedrockUI.className = 'ui-slide from-right';
-                ipLabel.innerText = "gaconmc.ddns.net:25793";
+                ipLabel.innerText = "gaconmc.ddns.net:19033";
             } else {
                 javaUI.className = 'ui-slide to-left';
                 bedrockUI.className = 'ui-slide active';
-                ipLabel.innerText = "gaconmc.ddns.net:25793";
+                ipLabel.innerText = "gaconmc.ddns.net:19033";
             }
         }
 
